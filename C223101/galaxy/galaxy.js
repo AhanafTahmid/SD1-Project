@@ -23,54 +23,154 @@ function changeScale(value) {
 }
 
 
+//C223101
 
 
 
 
 
 //using switch, not necessary but doing anyway for further understanding
-//*************************------Andromeda------***************************
-function changePlanet(v) {
-    // go to previous or next planet
+//*************************------Milky way------***************************
+function mchangeGalaxy(v) {
+    // go to previous or next Galaxy
     switch (v) {
         //previous
         case "<": {
-            window.location.href = 'index.html';
+            window.location.href = '../index.html';
         }
             break;
         //next
         case ">": {
-            window.location.href = 'index.html';
+            window.location.href = 'andromeda.html';
         }
             break;
-        case "homeeeeeee": {
-            window.location.href = 'index.html';
-        }
-            break;
-    }
-}
-
-
-
-
-
-//*************************------Andromeda------***************************
-function changePlanet(v) {
-    // go to previous or next planet
-    switch (v) {
-        //previous
-        case "<": {
-            window.location.href = 'index.html';
-        }
-            break;
-        //next
-        case ">": {
-            window.location.href = 'index.html';
-        }
-            break;
+        //Home
         case "homeeeeeee": {
             window.location.href = '../index.html';
         }
             break;
     }
 }
+
+
+
+
+
+//*************************------Andromeda------***************************
+function achangeGalaxy(v) {
+    // go to previous or next Galaxy
+    switch (v) {
+        //previous
+        case "<": {
+            window.location.href = 'milkyway.html';
+        }
+            break;
+        //next
+        case ">": {
+            window.location.href = 'triangulum.html';
+        }
+            break;
+        //Home
+        case "homeeeeeee": {
+            window.location.href = '../index.html';
+        }
+            break;
+    }
+}
+
+
+
+//*************************------Triangulum------***************************
+function tchangeGalaxy(v) {
+    // go to previous or next Galaxy
+    switch (v) {
+        //previous
+        case "<": {
+            window.location.href = 'andromeda.html';
+        }
+            break;
+        //next
+        case ">": {
+            window.location.href = 'sombrero-galaxy.html';
+        }
+            break;
+        //Home
+        case "homeeeeeee": {
+            window.location.href = '../index.html';
+        }
+            break;
+    }
+}
+
+
+
+//*************************------Sombrero------***************************
+function schangeGalaxy(v) {
+    // go to previous or next Galaxy
+    switch (v) {
+        //previous
+        case "<": {
+            window.location.href = 'triangulum.html';
+        }
+            break;
+        //next
+        case ">": {
+            window.location.href = 'black-eye-galaxy.html';
+        }
+            break;
+        //Home
+        case "homeeeeeee": {
+            window.location.href = '../index.html';
+        }
+            break;
+    }
+}
+
+
+//*************************------Black Eye------***************************
+function bchangeGalaxy(v) {
+    // go to previous or next Galaxy
+    switch (v) {
+        //previous
+        case "<": {
+            window.location.href = 'sombrero-galaxy.html';
+        }
+            break;
+        //next
+        case ">": {
+            window.location.href = 'pinwheel-galaxy.html';
+        }
+            break;
+        //Home
+        case "homeeeeeee": {
+            window.location.href = '../index.html';
+        }
+            break;
+    }
+}
+
+
+//*************************------Pinwheel------***************************
+function pchangeGalaxy(v) {
+    // go to previous or next Galaxy
+    switch (v) {
+        //previous
+        case "<": {
+            window.location.href = 'black-eye-galaxy.html';
+        }
+            break;
+        //next
+        case ">": {
+            window.location.href = '../quiz.html';
+        }
+            break;
+        //Home
+        case "homeeeeeee": {
+            window.location.href = '../index.html';
+        }
+            break;
+    }
+}
+
+
+//C223101

@@ -17,6 +17,8 @@ body {
   background-size: cover;
   background-position: center;
 }
+/*C223101*/
+
 
 .bg {
   position: fixed;
@@ -76,12 +78,15 @@ button {
   padding: 1.3rem;
 }
 
-button:hover {
-  background-color: #7267CB;
+button:hover{
+  background-color: rgb(205, 70, 46);
 }
 
 button:active {
   outline: none;
-  background-color: #98BAE7;
+  background-color: rgb(144, 39, 20);
 
 }
+
+
+/*C223101*/

@@ -106,3 +106,19 @@ const quizData = [
       }
     }
   })
+
+
+
+  //*************************------Go TO Home Page------***************************
+function qchange(v) {
+  // go to previous or next
+  switch (v) {
+      //Home
+      case "homeee": {
+          window.location.href = 'index.html';
+      }
+          break;
+  }
+}
+
+//C223101

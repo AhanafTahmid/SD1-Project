@@ -1,3 +1,31 @@
+:root {
+
+    /*Variables to Use in the styles*/
+    
+    --all-gal-color: #b3caff;/*All galaxy shadow*/
+
+    --milkyway-image: url(https://cdn.britannica.com/29/148329-050-269A9EFE/night-sky-Milky-Way-Galaxy.jpg);
+    --andromeda-image: url(https://noirlab.edu/public/media/archives/images/large/noao-m31fsqblock.jpg);
+    --triangulum-image: url(https://astrobackyard.com/wp-content/uploads/2023/11/triangulum-galaxy.jpg);
+    --sombrero-image: url(https://noirlab.edu/public/media/archives/images/wallpaper4/noao-m104.jpg);
+    --black-eye-image: url(https://upload.wikimedia.org/wikipedia/commons/8/82/Black_eye_galaxy.png);
+    --pinwheel-image: url(https://science.nasa.gov/_ipx/w_4096&f_png/https://smd-cms.nasa.gov/wp-content/uploads/2023/04/m101-jpg.webp%3Fw=2000);
+
+
+    --quiz-image: url(https://thumb.ac-illust.com/cc/cc0b71d5de1685d5dfe243b55909115f_t.jpeg);
+    --quiz-color: #cc9f4c;
+
+    --info-page-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlQFlVAIbK4_c8e4pQdAnm4mIOQcxuQGn2zQ&usqp=CAU);
+    --info-page-color: #cc9f4c;
+}
+
+
+
+
+
+/*C223101*/
+
+
 #all {
     width: 800px;
     height: 500px;
@@ -15,15 +43,16 @@
     animation-name: scale;
     animation-duration: 700ms;
 }
+/*C223101*/
 
 #info {
     display: flex;
 }
 
-p {
+.info p {
     font-size: 11px;
     margin-top: 5px;
-    margin-left: 8px;
+    margin-left: 4px;
 }
 
 #planet {
@@ -112,7 +141,7 @@ h1 {
     margin-bottom: 9px;
 }
 
-/*Hud is the previous or next state button*/
+/*Hud is the next state button*/
 
 #hud {
     display: flex;
@@ -121,6 +150,7 @@ h1 {
     width: 140px;
     right: 5px;
 }
+/*C223101*/
 
 #hud button {
     width: 100%;
@@ -189,6 +219,7 @@ h1 {
         width: 800px;
     }
 }
+/*C223101*/
 
 
 
@@ -202,7 +233,7 @@ h1 {
     border-radius: 10px;
     margin-left: auto;
     margin-right: auto;
-    background-image: url(https://noirlab.edu/public/media/archives/images/large/noao-m31fsqblock.jpg);;
+    background-image: url(https://noirlab.edu/public/media/archives/images/large/noao-m31fsqblock.jpg);
     background-size: cover;
 
     box-shadow: rgba(255, 146, 20, 0.6) 0px 0px 50px 12px,/*globe er charpashe*/
@@ -213,3 +244,25 @@ h1 {
     animation-iteration-count: infinite;
     pointer-events: all;
 }
+
+
+.milkyway{
+    background-image: var(--milkyway-image) !important;
+}
+.andromeda{
+    background-image: var(--andromeda-image) !important;
+}
+
+.triangulum{
+    background-image: var(--triangulum-image) !important;
+}
+.sombrero{
+    background-image: var(--sombrero-image) !important;
+}
+.black-eye{
+    background-image: var(--black-eye-image) !important;
+}
+.pinwheel{
+    background-image: var(--pinwheel-image) !important;
+}
+/*C223101*/

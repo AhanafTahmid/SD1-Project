@@ -1,20 +1,27 @@
 :root {
 
     /*Variables to Use in the styles*/
+    
+    --all-gal-color: #b3caff;/*All galaxy shadow*/
+
+    --milkyway-image: url(https://cdn.britannica.com/29/148329-050-269A9EFE/night-sky-Milky-Way-Galaxy.jpg);
     --andromeda-image: url(https://noirlab.edu/public/media/archives/images/large/noao-m31fsqblock.jpg);
-    --andromeda-color: #b3caff;
+    --triangulum-image: url(https://astrobackyard.com/wp-content/uploads/2023/11/triangulum-galaxy.jpg);
+    --sombrero-image: url(https://noirlab.edu/public/media/archives/images/wallpaper4/noao-m104.jpg);
+    --black-eye-image: url(https://upload.wikimedia.org/wikipedia/commons/8/82/Black_eye_galaxy.png);
+    --pinwheel-image: url(https://science.nasa.gov/_ipx/w_4096&f_png/https://smd-cms.nasa.gov/wp-content/uploads/2023/04/m101-jpg.webp%3Fw=2000);
 
 
-    --quiz-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4QJMLmb87HMUEHTpGF6zWqpFG-j1-R2nS6HUBGhVQ1X4VyMjnFZGfom2Aqt5AbJ5Qffc&usqp=CAU);
+    --quiz-image: url(https://thumb.ac-illust.com/cc/cc0b71d5de1685d5dfe243b55909115f_t.jpeg);
     --quiz-color: #cc9f4c;
 
-    --info-page-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlQFlVAIbK4_c8e4pQdAnm4mIOQcxuQGn2zQ&usqp=CAU);
+    --info-page-image: url("info.png");
     --info-page-color: #cc9f4c;
 }
 
 
-/*Defining animation rule for planetRotate*/
-@keyframes planetRotate {
+/*Defining animation rule for Galaxy*/
+@keyframes galaxyanimation {
     0% {
         background-position: 0% center;
     }
@@ -118,7 +125,7 @@ a{
 }
 
 /*General - Line in Rotation Info*/
-/* .planet::before {
+/* .galaxy::before {
     content: "";
     position: absolute;
     height: 190px;
@@ -132,32 +139,56 @@ a{
 
 
 
-
-
-/****************************Andromaeda**********************************/
-
-/*Main animation part, animating infitely, planetRotate for rotating keyframes*/
-.andromeda .surface {
-    background-image: var(--andromeda-image);
-    animation: planetRotate calc(30s) linear infinite;
-}
+/*C223101*/
 
 
 /*top right bottom left*/
-.andromeda .atmosphere {
+.all-gal .atmosphere {
     box-shadow: inset 10px 0px 12px -2px rgba(255, 255, 255, 0.2),
-        inset -10px 0px 50px 0px black, -5px 0px 10px -4px var(--andromeda-color);
+        inset -10px 0px 50px 0px black, -5px 0px 10px -4px var(--all-gal-color);
 }
 
 /*Earth - Line in Rotation Info*/
-.andromeda .planet::before {
+.all-gal .galaxy::before {
     /*For dotted color*/
-    border-color: var(--andromeda-color);
-    color: var(--andromeda-color);
+    border-color: var(--all-gal-color);
+    color: var(--all-gal-color);
 }
 
 
 
+
+/****************************Galaxies**********************************/
+
+/*Main animation part, animating infitely, galaxyanimation for rotating keyframes*/
+.milkyway .surface {
+    background-image: var(--milkyway-image);
+    animation: galaxyanimation calc(30s) linear infinite;
+}
+
+.andromeda .surface {
+    background-image: var(--andromeda-image);
+    animation: galaxyanimation calc(40s) linear infinite;
+}
+.triangulum .surface {
+    background-image: var(--triangulum-image);
+    animation: galaxyanimation calc(30s) linear infinite;
+}
+
+.sombrero .surface {
+    background-image: var(--sombrero-image);
+    animation: galaxyanimation calc(15s) linear infinite;
+}
+
+.black-eye .surface {
+    background-image: var(--black-eye-image);
+    animation: galaxyanimation calc(10s) linear infinite;
+}
+
+.pinwheel .surface {
+    background-image: var(--pinwheel-image);
+    animation: galaxyanimation calc(1s) linear infinite;
+}
 
 
 
@@ -176,6 +207,10 @@ a{
 
 
 /*QUIZ*/
+.quiz{
+    margin-bottom:130px;
+    background-size: cover;
+}
 .quiz .atmosphere {
     box-shadow: inset 10px 0px 12px -2px rgba(255, 255, 255, 0.2),
         inset -10px 0px 50px 0px black, -5px 0px 10px -4px var(--quiz-color);
@@ -183,6 +218,7 @@ a{
 
 .quiz .surface {
     background-image: var(--quiz-image);
+    background-size: cover;
 }
 
 
@@ -194,4 +230,4 @@ a{
 
 .info-page .surface {
     background-image: var(--info-page-image);
-}
+}/*C223101*/
