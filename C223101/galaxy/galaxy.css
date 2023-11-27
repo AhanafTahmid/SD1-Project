@@ -189,3 +189,27 @@ h1 {
         width: 800px;
     }
 }
+
+
+
+
+
+
+#all-galaxy {
+    width: 400px;
+    height: 300px;
+    background: #b8592a;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    background-image: url(https://noirlab.edu/public/media/archives/images/large/noao-m31fsqblock.jpg);;
+    background-size: cover;
+
+    box-shadow: rgba(255, 146, 20, 0.6) 0px 0px 50px 12px,/*globe er charpashe*/
+        rgba(0, 0, 0, 0.85) -90px -42px 44px 0px inset;
+    animation-name: rote;
+    animation-timing-function: linear;
+    animation-duration: 400s;
+    animation-iteration-count: infinite;
+    pointer-events: all;
+}

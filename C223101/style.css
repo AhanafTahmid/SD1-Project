@@ -4,6 +4,7 @@
     --andromeda-image: url(https://noirlab.edu/public/media/archives/images/large/noao-m31fsqblock.jpg);
     --andromeda-color: #b3caff;
 
+
     --quiz-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4QJMLmb87HMUEHTpGF6zWqpFG-j1-R2nS6HUBGhVQ1X4VyMjnFZGfom2Aqt5AbJ5Qffc&usqp=CAU);
     --quiz-color: #cc9f4c;
 
@@ -35,7 +36,9 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fill, 190px);
     grid-template-rows: repeat(auto-fill, 400px);
-    grid-gap: 140px;
+    grid-column-gap: 140px;
+    grid-row-gap: 30px;
+    /* grid-gap: 140px; */
     /*flexbox properties*/
     align-items: center;
     justify-items: center;
@@ -101,7 +104,7 @@ a{
 .item {
     display: flex;
     margin-bottom: 5px;
-    font-size: 14px;
+    font-size: 16px;
     text-transform: capitalize;
 }
 
@@ -109,7 +112,8 @@ a{
 .line {
     flex: 1;
     margin: 0 6px;
-    border-bottom: 1px dashed grey;
+    border-bottom: 1px dashed yellow;
+    /* border-bottom: 1px dashed grey; */
     /*rgba(255, 255, 255, 0.3)*/
 }
 

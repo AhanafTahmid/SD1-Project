@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andromeda</title>
+    <link rel="stylesheet" href="galaxy.css">
+    <script src="galaxy.js"></script>
+    <style>
+        
+    </style>
+
+</head>
+
+<body>
+
+    <div id="all">
+        <div id="top">
+            <h1 id="name">Andromeda</h1>
+        </div>
+
+
+        <div id="info">
+
+            <div id="left" class="info">
+
+                <h2>Description</h2>
+                <p id="desc">
+                    andromeda is the fourth planet from the Sun - a dusty, cold, desert world with a very thin atmosphere.
+                    andromeda is also a dynamic planet with seasons, polar ice caps, canyons, extinct volcanoes, and evidence
+                    that it was even more active in the past.
+                </p>
+                <h2>Length of Year</h2>
+                <p > 687 andromeda Days</p>
+                <h2>Moons</h2>
+                info part
+            </div>
+
+            
+
+
+            <div id="planet">
+                <div style="margin-bottom:70px;"></div>
+                <div id="all-galaxy"></div>
+            </div>
+
+
+            <div class="info">
+
+                <div id="control">
+                    <h2>Velocity</h2>
+                    <!-- Max rotation is 300px, now set to 199 means 66% -->
+                    <input type="range" min="0" value="199" max="300" id="vel" onclick="changeVel(this)">
+                    <!-- input is triggering this, value.value -->
+                    <p id="value" style="margin-top:0;">66%</p>
+                </div>
+
+                <div id="zomm">
+                    <h2>Scale</h2>
+                    <input type="range" min="0.01" step="0.01" value="1" max="1.20" id="vel" oninput="changeScale(this)">
+                    <p id="valueZomm" style="margin-top:0;">90%</p>
+                </div>
+
+
+
+                <!-- Go To Home button -->
+                <div class="homeeee"><button  onclick="changePlanet('homeeeeeee')">Home</button></div>
+                <!-- Go To Prev,Next button -->
+                <div id="hud">
+                    
+                    <button onclick="changePlanet('<')">&lt; prev</button>
+                    <button onclick="changePlanet('>')">next &gt;</button>
+                </div>
+
+            </div>
+
+
+
+        </div>
+    </div>
+
+
+    <div id="bg"></div>
+    <!--C223101-->
+
+
+
+
+
+</body>
+
+</html>
