@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <style>
+        html {
+}
+#all {
+    width: 800px;
+    height: 500px;
+    backdrop-filter: brightness(70%) blur(2px);
+    border-radius: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 3px 10px;
+    border: solid 1px rgba(255, 255, 255, 0.3);
+    border-left: solid 3px rgba(255, 255, 255, 0.3);
+    border-right: solid 3px rgba(255, 255, 255, 0.3);
+    margin-top: calc(50vh - 255px);
+    transition: 300ms;
+    background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.2) 0%,
+        rgba(255, 255, 255, 0) 45%
+    );
+    animation-name: scale;
+    animation-iteration-count: 1;
+    animation-duration: 700ms;
+}
+#info {
+    display: flex;
+}
+p {
+    font-size: 11px;
+    margin-top: 5px;
+    margin-left: 8px;
+}
+#planet {
+    width: 60%;
+    pointer-events: none;
+}
+h2 {
+    font-family: "Electrolize", sans-serif;
+    margin: 0;
+    font-size: 16px;
+    transform: scaley(0.8);
+    padding: 3px;
+    color: rgba(255, 255, 255, 0.6);
+}
+.info {
+    width: 20%;
+    font-family: "Fragment Mono", monospace;
+    color: rgba(255, 255, 255, 0.3);
+}
+#mars {
+    width: 300px;
+    height: 300px;
+    background: #b8592a;
+    border-radius: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    background-image: var(--texture);
+    background-size: cover;
+    box-shadow: var(--shadow);
+    animation-name: rote;
+    animation-timing-function: linear;
+    animation-duration: 400s;
+    animation-iteration-count: infinite;
+    cursor: move;
+    pointer-events: all;
+}
+#sun {
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+    background-color: white;
+    filter: blur(15px);
+    position: relative;
+    top: 120px;
+    left: 75px;
+    transform: rotate(120deg) scaley(0.3);
+}
+#back {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-image: url(https://wallpaperaccess.com/full/44214.jpg);
+    background-size: cover;
+    background-position-x: center;
+    top: 0;
+    left: 0;
+    z-index: -90;
+    filter: var(--hue);
+    transition: 100ms filter;
+}
+#top {
+    text-align: center;
+    font-family: "Electrolize", sans-serif;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 25px;
+}
+h1 {
+    margin: 0;
+    transform: scaley(0.6);
+}
+@keyframes rote {
+    from {
+        background-position-x: 0;
+    }
+    to {
+        background-position-x: 1000%;
+    }
+}
+
+#vel::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 5px;
+    height: 15px;
+    background: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+}
+#vel {
+    margin-left: 3px;
+    background-color: rgba(255, 255, 255, 0.3);
+    -webkit-appearance: none;
+    appearance: none;
+    display: inline-block;
+    width: 95%;
+    height: 2px;
+    left: 1em;
+    outline: none;
+    margin-bottom: 9px;
+}
+
+#vel::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+}
+#hud {
+    display: flex;
+    position: absolute;
+    bottom: 5px;
+    width: 140px;
+    right: 5px;
+}
+#hud button {
+    width: 100%;
+    margin: 3px;
+    font-family: "Fragment Mono", monospace;
+    font-size: 11px;
+    border: solid 1px rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    color: rgba(255, 255, 255, 0.6);
+    background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.5) 0%,
+        rgba(1, 1, 1, 0.2) 45%
+    );
+    padding: 7px 0;
+    transition: 100ms;
+    cursor: pointer;
+}
+
+#hud button:active {
+    background: linear-gradient(
+        145deg,
+        rgba(1, 1, 1, 0.2) 0%,
+        rgba(255, 255, 255, 0.1) 45%
+    );
+    transform: scale(0.9);
+}
+@keyframes scale {
+    from {
+        width: 600px;
+    }
+    to {
+        width: 800px;
+    }
+}
+
+    </style>
+    <script>
+        function changeVel(value) {
+    document.getElementById("mars").style.animationDuration =
+        301 - value.value + "s";
+    document.getElementById("value").innerHTML = calk(value.value) + "%";
+}
+function calk(val) {
+    let vo = (val / 300) * 100;
+    return vo.toFixed(0);
+}
+function changeScale(value) {
+    document.getElementById("planet").style.transform = `scale(${value.value})`;
+    let uy = (value.value * 100) / 1.2;
+    document.getElementById("valueZomm").innerHTML = uy.toFixed(0) + "%";
+}
+
+let planets = [
+    {
+        name: "MARS",
+        desc: `Mars is the fourth 
+        planet from the Sun – a dusty, cold, 
+        desert world with a very thin atmosphere. 
+        Mars is also a dynamic planet with seasons,
+        polar ice caps, canyons, 
+        extinct volcanoes, and evidence that it was even more active 
+        in the past.`,
+        loy: "687 Earth Days",
+        moons: ` fobus <br>
+                <img width="30px" src="https://www.pngkit.com/png/full/441-4410958_mars-and-survey-the-red-planets-two-moons.png" alt=""> <br>
+                Deimus <br>
+                <img width="30px" src="https://userscontent2.emaze.com/images/7b7b65e5-81e5-4b3e-8f20-c8d3fbddf5c3/f2f1f8e5-94c7-4df8-aaa1-2e9749a4b90d.png" alt="">`,
+        css: `
+        :root{
+    --texture:url(https://www.solarsystemscope.com/textures/download/2k_mars.jpg);   
+    --shadow:rgba(255, 146, 20, 0.6) 0px 0px 50px 12px,
+        rgb(255, 102, 0) -26px -2px 24px -25px inset,
+        rgba(0, 0, 0, 0.85) -90px -42px 44px 0px inset,
+        rgba(255, 255, 255, 0.93) 15px 6px 6px -13px inset;
+             --hue: hue-rotate(188deg);
+        }`
+    },
+    {
+        name: "EARTH",
+        desc: `Our home planet is the third planet from the Sun, and the only place we know of so far that’s inhabited by living things.While Earth is only the fifth largest planet in the solar system, it is the only world in our solar system with liquid water on the surface. Just slightly larger than nearby Venus, Earth is the biggest of the four planets closest to the Sun, all of which are made of rock and metal.`,
+        loy: "365 Earth Days",
+        moons: ` moon <br>
+                <img width="30px" src="https://www.publicdomainpictures.net/pictures/400000/nahled/vollmond-mond-png-clipart.png" alt="">`,
+        css: `
+        :root{
+    --texture:url(https://web.cortland.edu/flteach/civ/davidweb/images/earthmab.jpg);   
+    --shadow: rgb(20 81 255 / 54%) 0px 0px 10px 4px, rgb(0 55 255 / 65%) -26px -2px 24px -25px inset, rgba(0, 0, 0, 0.85) -90px -42px 44px 0px inset, rgba(255, 255, 255, 0.93) 15px 6px 6px -13px inset;
+         --hue: hue-rotate(30deg);}`
+    }
+];
+let page = 0;
+function changePlanet(v) {
+    switch (v) {
+        case "<":
+            {
+                if (page > 0) {
+                    page--;
+                    anm();
+                }
+            }
+            break;
+        case ">":
+            {
+                if (page < planets.length - 1) {
+                    page++;
+                    anm();
+                }
+            }
+            break;
+    }
+}
+let planet = document.getElementById("planet");
+//
+let planetName = document.getElementById("name");
+let description = document.getElementById("desc");
+let yl = document.getElementById("lenghtYear");
+let moons = document.getElementById("moons");
+let cssy = document.getElementById("cssy");
+function changing() {
+    iNNer(planetName, planets[page].name);
+    iNNer(description, planets[page].desc);
+    iNNer(yl, planets[page].loy);
+    iNNer(moons, planets[page].moons);
+    iNNer(cssy, planets[page].css);
+    document.getElementById("");
+}
+function iNNer(ele, str) {
+    ele.innerHTML = str;
+}
+function anm() {
+    var anm = planet.animate(
+        [
+            { transform: "translate(1)" },
+            { transform: "scale(0) translatey(-200px)" }
+        ],
+        200
+    );
+    anm.addEventListener("finish", function () {
+        changing();
+    });
+}
+
+    </script>
+
+
+
+
+
+<style id="cssy">
+    :root {
+        --texture: url(https://www.solarsystemscope.com/textures/download/2k_mars.jpg);
+        --shadow: rgba(255, 146, 20, 0.6) 0px 0px 50px 12px,
+            rgb(255, 102, 0) -26px -2px 24px -25px inset,
+            rgba(0, 0, 0, 0.85) -90px -42px 44px 0px inset,
+            rgba(255, 255, 255, 0.93) 15px 6px 6px -13px inset;
+        --hue: hue-rotate(188deg);
+    }
+</style>
+
+
+</head>
+<body>
+    
+
+
+    <div id="all">
+        <div id="top">
+            <h1 id="name">MARS</h1>
+        </div>
+
+
+        <div id="info">
+            <div id="left" class="info">
+                <h2>Description</h2>
+                <p id="desc">
+                    Mars is the fourth planet from the Sun – a dusty, cold, desert world with a very thin atmosphere. Mars is also a dynamic planet with seasons, polar ice caps, canyons, extinct volcanoes, and evidence that it was even more active in the past.
+                </p>
+                <h2>Length of Year</h2>
+                <p id="lenghtYear"> 687 Earth Days</p>
+                <h2>Moons</h2>
+                <p id="moons">
+                    fobus <br>
+                    <img width="30px" src="https://www.pngkit.com/png/full/441-4410958_mars-and-survey-the-red-planets-two-moons.png" alt=""> <br>
+                    Deimus <br>
+                    <img width="30px" src="https://userscontent2.emaze.com/images/7b7b65e5-81e5-4b3e-8f20-c8d3fbddf5c3/f2f1f8e5-94c7-4df8-aaa1-2e9749a4b90d.png" alt="">
+                </p>
+            </div>
+            <div id="planet">
+                <div id="sun"></div>
+                <div id="mars"></div>
+            </div>
+            <div id="right" class="info">
+                <div id="control">
+                    <h2>Rotation Velocity</h2>
+                    <input type="range" min="0" value="199" max="300" id="vel" onclick="changeVel(this)">
+                    <p id="value" style="margin-top:0;">66%</p>
+                </div>
+                <div id="zomm">
+                    <h2>Scale</h2>
+                    <input type="range" min="0.01" step="0.01" value="1" max="1.20" id="vel" oninput="changeScale(this)">
+                    <p id="valueZomm" style="margin-top:0;">90%</p>
+                </div>
+                <div id="hud">
+                    <button onclick="changePlanet('<')">&lt; prev</button>
+                    <button onclick="changePlanet('>')">next &gt;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="back">
+    
+    </div>
+    
+    
+
+
+
+</body>
+</html>
+
+
+
+    
