@@ -1,0 +1,193 @@
+:root {
+
+    /*Variables to Use in the styles*/
+    --andromeda-image: url(https://noirlab.edu/public/media/archives/images/large/noao-m31fsqblock.jpg);
+    --andromeda-color: #b3caff;
+
+    --quiz-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4QJMLmb87HMUEHTpGF6zWqpFG-j1-R2nS6HUBGhVQ1X4VyMjnFZGfom2Aqt5AbJ5Qffc&usqp=CAU);
+    --quiz-color: #cc9f4c;
+
+    --info-page-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlQFlVAIbK4_c8e4pQdAnm4mIOQcxuQGn2zQ&usqp=CAU);
+    --info-page-color: #cc9f4c;
+}
+
+
+/*Defining animation rule for planetRotate*/
+@keyframes planetRotate {
+    0% {
+        background-position: 0% center;
+    }
+
+    100% {
+        background-position: -200% center;
+        /*background image is shifted to the left by twice*/
+    }
+}
+
+/*General Styles*/
+
+body {
+    background: #000;
+    color: #fff;
+    height: 100%;
+    width: 100vw;
+    margin: 10px 0 40px 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 190px);
+    grid-template-rows: repeat(auto-fill, 400px);
+    grid-gap: 140px;
+    /*flexbox properties*/
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+    font-family: "Major Mono Display";
+    text-transform: lowercase;
+    background-repeat: no-repeat !important;
+    
+
+ 
+}
+a{
+    text-decoration: none;
+}
+
+.bg{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-image: url(https://wallpaperaccess.com/full/44214.jpg);
+    background-size: cover;
+    background-position-x: center;
+    top: 0;
+    left: 0;
+    z-index: -10;
+    filter: hue-rotate(188deg);
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /*Center all the elements alignments*/
+    position: relative;
+}
+
+.atmosphere {
+    height: 190px;
+    width: 290px;
+    position: relative;
+    background: radial-gradient(circle at 30% 50%,
+            rgba(255, 255, 255, 0.3) 0%,
+            rgba(255, 255, 255, 0) 65%);
+    border-radius: 10px;
+    background-repeat: no-repeat !important;
+    overflow: hidden;
+}
+
+
+/*Main structure of where image is placed*/
+.surface {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    background-size: cover;
+    /*Putting the full image in cover style,small*/
+}
+
+
+/*Style for the info*/
+.item {
+    display: flex;
+    margin-bottom: 5px;
+    font-size: 14px;
+    text-transform: capitalize;
+}
+
+/*Line in Info*/
+.line {
+    flex: 1;
+    margin: 0 6px;
+    border-bottom: 1px dashed grey;
+    /*rgba(255, 255, 255, 0.3)*/
+}
+
+/*General - Line in Rotation Info*/
+/* .planet::before {
+    content: "";
+    position: absolute;
+    height: 190px;
+    z-index: -1;
+    left: 50%;
+    top: 0%;
+    border-left: 1px dashed grey;
+} */
+
+
+
+
+
+
+
+/****************************Andromaeda**********************************/
+
+/*Main animation part, animating infitely, planetRotate for rotating keyframes*/
+.andromeda .surface {
+    background-image: var(--andromeda-image);
+    animation: planetRotate calc(30s) linear infinite;
+}
+
+
+/*top right bottom left*/
+.andromeda .atmosphere {
+    box-shadow: inset 10px 0px 12px -2px rgba(255, 255, 255, 0.2),
+        inset -10px 0px 50px 0px black, -5px 0px 10px -4px var(--andromeda-color);
+}
+
+/*Earth - Line in Rotation Info*/
+.andromeda .planet::before {
+    /*For dotted color*/
+    border-color: var(--andromeda-color);
+    color: var(--andromeda-color);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*QUIZ*/
+.quiz .atmosphere {
+    box-shadow: inset 10px 0px 12px -2px rgba(255, 255, 255, 0.2),
+        inset -10px 0px 50px 0px black, -5px 0px 10px -4px var(--quiz-color);
+}
+
+.quiz .surface {
+    background-image: var(--quiz-image);
+}
+
+
+/*info-page*/
+.info-page .atmosphere {
+    box-shadow: inset 10px 0px 12px -2px rgba(255, 255, 255, 0.2),
+        inset 0px 0px 50px 0px black, 0px 0px 10px -4px var(--info-page-color);
+}
+
+.info-page .surface {
+    background-image: var(--info-page-image);
+}
