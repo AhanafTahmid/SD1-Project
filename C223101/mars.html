@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mars</title>
+    <style>
+        #all {
+            width: 800px;
+            height: 500px;
+            backdrop-filter: brightness(70%) blur(2px);
+            border-radius: 10px;
+            margin-right: auto;
+            margin-left: auto;
+            padding: 3px 10px;
+            border: solid 1px rgba(255, 255, 255, 0.3);/*Main border of the frame*/
+            border-left: solid 3px rgba(255, 255, 255, 0.3);
+            border-right: solid 3px rgba(255, 255, 255, 0.3);
+            margin-top: calc(50vh - 255px);
+            transition: 300ms;
+            animation-name: scale;
+            animation-duration: 700ms;
+        }
+
+        #info {
+            display: flex;
+        }
+
+        p {
+            font-size: 11px;
+            margin-top: 5px;
+            margin-left: 8px;
+        }
+
+        #planet {
+            width: 60%;
+        }
+
+        h2 {
+            font-family:  sans-serif;
+            margin: 0;
+            font-size: 16px;
+            transform: scaley(0.8);
+            padding: 3px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .info {
+            width: 20%;
+            font-family: monospace;
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        #mars {
+            width: 300px;
+            height: 300px;
+            background: #b8592a;
+            border-radius: 200px;
+            margin-left: auto;
+            margin-right: auto;
+            background-image: url(https://www.solarsystemscope.com/textures/download/2k_mars.jpg);;
+            background-size: cover;
+
+            box-shadow: rgba(255, 146, 20, 0.6) 0px 0px 50px 12px,/*globe er charpashe*/
+                rgba(0, 0, 0, 0.85) -90px -42px 44px 0px inset;
+            animation-name: rote;
+            animation-timing-function: linear;
+            animation-duration: 400s;
+            animation-iteration-count: infinite;
+            cursor: move;
+            pointer-events: all;
+        }
+
+
+        /* Background */
+        #bg {
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            background-image: url(https://wallpaperaccess.com/full/44214.jpg);
+            background-size: cover;
+            background-position-x: center;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            filter: hue-rotate(188deg);
+        }
+
+        /*Main h1 heading*/
+        #top {
+            text-align: center;
+            font-family: sans-serif;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 25px;
+        }
+
+        h1 {
+            margin: 0;
+            transform: scaley(0.6);
+            /*choto kora*/
+        }
+
+        @keyframes rote {
+            from {
+                background-position-x: 0;
+            }
+
+            to {
+                background-position-x: 1000%;
+            }
+        }
+
+        /*selecting the handlebar*/
+        #vel::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 5px;
+            height: 15px;
+            background: rgba(255, 255, 255, 0.6);
+            cursor: pointer;
+        }
+
+        #vel {
+            margin-left: 3px;
+            background-color: rgba(255, 255, 255, 0.3);
+            -webkit-appearance: none;
+            appearance: none;
+            display: inline-block;
+            width: 95%;
+            height: 2px;
+            left: 1em;
+            outline: none;
+            margin-bottom: 9px;
+        }
+
+        /*Hud is the previous or next state button*/
+
+        #hud {
+            display: flex;
+            position: absolute;
+            bottom: 5px;
+            width: 140px;
+            right: 5px;
+        }
+
+        #hud button {
+            width: 100%;
+            margin: 3px;
+            font-family: "Fragment Mono", monospace;
+            font-size: 11px;
+            border: solid 1px rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            color: rgba(255, 255, 255, 0.6);
+            background: linear-gradient(145deg,
+                    rgba(255, 255, 255, 0.5) 0%,
+                    rgba(1, 1, 1, 0.2) 45%);
+            padding: 7px 0;
+            transition: 100ms;
+            cursor: pointer;
+        }
+
+        #hud button:active {
+            background: linear-gradient(145deg,
+                    rgba(1, 1, 1, 0.2) 0%,
+                    rgba(255, 255, 255, 0.1) 45%);
+            transform: scale(0.9);
+        }
+
+        @keyframes scale {
+            from {
+                width: 600px;
+            }
+
+            to {
+                width: 800px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+
+    <div id="all">
+        <div id="top">
+            <h1 id="name">MARS</h1>
+        </div>
+
+
+        <div id="info">
+
+            <div id="left" class="info">
+
+                <h2>Description</h2>
+                <p id="desc">
+                    Mars is the fourth planet from the Sun - a dusty, cold, desert world with a very thin atmosphere.
+                    Mars is also a dynamic planet with seasons, polar ice caps, canyons, extinct volcanoes, and evidence
+                    that it was even more active in the past.
+                </p>
+                <h2>Length of Year</h2>
+                <p > 687 Earth Days</p>
+                <h2>Moons</h2>
+                info part
+            </div>
+
+            
+
+
+            <div id="planet">
+                <div style="margin-bottom:70px;"></div>
+                <div id="mars"></div>
+            </div>
+
+
+            <div class="info">
+
+                <div id="control">
+                    <h2>Rotation Velocity</h2>
+                    <!-- Max rotation is 300px, now set to 199 means 66% -->
+                    <input type="range" min="0" value="199" max="300" id="vel" onclick="changeVel(this)">
+                    <!-- input is triggering this, value.value -->
+                    <p id="value" style="margin-top:0;">66%</p>
+                </div>
+
+                <div id="zomm">
+                    <h2>Scale</h2>
+                    <input type="range" min="0.01" step="0.01" value="1" max="1.20" id="vel" oninput="changeScale(this)">
+                    <p id="valueZomm" style="margin-top:0;">90%</p>
+                </div>
+
+
+                <div id="hud">
+                    <button onclick="changePlanet('<')">&lt; prev</button>
+                    <button onclick="changePlanet('>')">next &gt;</button>
+                </div>
+
+            </div>
+
+
+
+        </div>
+    </div>
+
+
+    <div id="bg"></div>
+    <!--C223101-->
+
+
+
+
+
+    <script>
+
+
+        // Rotation Velocity
+        function changeVel(value) {
+            document.getElementById("mars").style.animationDuration =
+                301 - value.value + "s";
+                //console.log(value.value);
+                //console.log(value);
+            document.getElementById("value").innerHTML = calk(value.value) + "%";
+        }
+
+        //getting perchantage
+        function calk(val) {
+            let vo = (val / 300) * 100;
+            return vo.toFixed(0);//printing 0 number of digits
+        }
+
+
+
+        // ZOOM
+        function changeScale(value) {
+            document.getElementById("planet").style.transform = `scale(${value.value})`;//template literal in JavaScript, animating using css
+            let uy = (value.value * 100) / 1.2;//cause value 1-1.20
+            document.getElementById("valueZomm").innerHTML = uy.toFixed(0) + "%";//initially 90%, from valueZomm
+        }
+        
+
+
+        
+        //using switch, not necessary but doing anyway for further understanding
+        function changePlanet(v) {
+            // go to previous or next planet
+            switch (v) {
+                //previous
+                case "<":
+                    {
+                        window.location.href = 'index.html';
+                    }
+                    break;
+                //next
+                case ">":
+                    {
+                        window.location.href = 'index.html';
+                    }
+                    break;
+            }
+        }
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>
